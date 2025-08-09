@@ -1,7 +1,11 @@
+import { Fragment } from "react"
 function App() {
 
   return (
-    <h1>Hello World</h1>
+    <Fragment>
+      <h1>Hello World</h1>
+      <h2>Learing to code with react</h2>
+    </Fragment>
   )
 }
 
