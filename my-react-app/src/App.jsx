@@ -1,24 +1,19 @@
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
+import UserList from "./UserList"; //import the childComponent
 function App() {
   const myElement = <h2 className="text-lowercase">Learing to code with react</h2>
   // Render a list using jsx
-  const users = [
+  const [users] = useState([
     { id: 1, name: "John Doe" , role: "Admin"},
     { id: 2, name: "Jane Smith", role: "Editor" },
     { id: 3, name: "Alice Johnson", role: "Viewer" }
-  ]
+  ])
   return (
     <Fragment>
       <h1>Hello World</h1>
       {myElement}
       <p>The users list:</p>
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            {user.name} - {user.role}
-          </li>
-        ))}
-      </ul>
+      <UserList users={users} />
       {/* comment inside the return */}
     </Fragment>
   )
