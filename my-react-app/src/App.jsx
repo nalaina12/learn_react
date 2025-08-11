@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 function App() {
-  const myElement = <h2>Learing to code with react</h2>
+  const myElement = <h2 className="text-lowercase">Learing to code with react</h2>
   // Render a list using jsx
   const users = [
     { id: 1, name: "John Doe" , role: "Admin"},
