@@ -1,10 +1,9 @@
 import './App.css'
 
-const subject = 'React';
-function App() {
+function App(props) {
   return (
     <>
-      <h1>Hello {subject}</h1>
+      <h1>Hello {props.subject}</h1>
       <button type='button' className='primary'>Click Me</button>
     </>
   )
