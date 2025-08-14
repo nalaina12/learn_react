@@ -6,10 +6,13 @@ function App(props) {
   const taskList = props.tasks?.map((task) => (
     <Todo key={task.id} name={task.name} id={task.id} completed={task.completed} />
   ));
+  function addTask(name) {
+    alert(name + " added");
+  }
   return (
     <div className="todoapp stack-large">
       <h1>To-Do List</h1>
-      <Form />
+      <Form onSubmit={addTask} />
       <div className="filters btn-group stack-exception">
         <FilterButton />
         <FilterButton />
