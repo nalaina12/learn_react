@@ -1,13 +1,16 @@
+import { useState } from "react";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 
 function App(props) {
-  const taskList = props.tasks?.map((task) => (
+  const [tasks, setTasks] = useState(props.tasks);
+  const taskList = tasks?.map((task) => (
     <Todo key={task.id} name={task.name} id={task.id} completed={task.completed} />
   ));
   function addTask(name) {
-    alert(name + " added");
+    const newTask = { id: "id" + Date.now(), name, completed: false };
+    setTasks([...tasks, newTask]);
   }
   return (
     <div className="todoapp stack-large">
