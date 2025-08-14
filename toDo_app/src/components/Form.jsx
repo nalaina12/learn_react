@@ -1,6 +1,10 @@
 function Form(){
+    function handleSubmit(event) {
+        event.preventDefault();
+        alert("Task added");
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <h2 className="label-wrapper">
             <label htmlFor="new-todo-input" className="label_lg">What needs to be done?</label>
             </h2>
