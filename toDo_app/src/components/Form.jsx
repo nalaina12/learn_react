@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function Form(props){
+    const [name, setName] = useState("");
+
     function handleSubmit(event) {
         event.preventDefault();
          props.onSubmit("Task added");
