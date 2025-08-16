@@ -5,8 +5,14 @@ import Todo from "./components/Todo";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  }
   const taskList = tasks?.map((task) => (
-    <Todo key={task.id} name={task.name} id={task.id} completed={task.completed} />
+    <Todo key={task.id} name={task.name} id={task.id} completed={task.completed} toggleTaskCompleted={toggleTaskCompleted} />
   ));
   function addTask(name) {
     const newTask = { id: "id" + Date.now(), name, completed: false };
