@@ -15,13 +15,21 @@ function App(props) {
     const remaining = tasks.filter((task) => task.id !== id);
     setTasks(remaining);
   }
+  function editTask(id, newName) {
+    const editTaskList = tasks.map((task) =>
+      task.id === id ? { ...task, name: newName } : task
+    );
+    setTasks(editTaskList);
+  }
+
   const taskList = tasks?.map((task) => (
-    <Todo key={task.id} name={task.name} id={task.id} completed={task.completed} toggleTaskCompleted={toggleTaskCompleted} deleteTask={deleteTask} />
+    <Todo key={task.id} name={task.name} id={task.id} completed={task.completed} toggleTaskCompleted={toggleTaskCompleted} deleteTask={deleteTask} editTask={editTask} />
   ));
   function addTask(name) {
     const newTask = { id: "id" + Date.now(), name, completed: false };
     setTasks([...tasks, newTask]);
   }
+  
 
   const tasksNoun = tasks.length === 1 ? "task" : "tasks";
   const headingText = `${tasks.length} ${tasksNoun} remaining`;
