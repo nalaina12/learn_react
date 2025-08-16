@@ -42,7 +42,7 @@ function App(props) {
   
 
   const tasksNoun = tasks.length === 1 ? "task" : "tasks";
-  const headingText = `${tasks.length} ${tasksNoun} remaining`;
+  const headingText = `${tasks.filter(FILTER_MAP[filter]).length} ${tasksNoun} remaining`;
   return (
     <div className="todoapp stack-large">
       <h1>To-Do List</h1>
